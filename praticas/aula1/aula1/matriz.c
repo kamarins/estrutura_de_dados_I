@@ -31,5 +31,4 @@ double media(double resultado){
 
 void printResultado(double resultado){
     printf("%.1lf\n", resultado);
-    
 }
