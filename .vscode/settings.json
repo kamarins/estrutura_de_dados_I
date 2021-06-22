@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "corretor.h": "c",
+        "stdio.h": "c"
+    }
+}

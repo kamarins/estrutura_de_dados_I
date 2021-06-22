@@ -3,42 +3,103 @@
 #include <stdlib.h>
 #include <string.h>
 
+//struct para os dados da submissao
 struct submissao{
   char id;
   int tempo;
-  char* julg;
+  char julg[20];
 };
 
+//struct para a pontuação, 
+//s = quantidade de casos corretos 
+//p = soma dos tempos 
 struct pontuacao{
-    int s;
-    int p;
+  int s;
+  int p;
 };
 
-//ler a quantidade de submissoes do caso teste
+//funcao para ler a quantidade de submissoes do caso teste
 void lerQuantidade(int *qtd){
-    scanf("%i", qtd);
+    scanf("%d", qtd);
 }
 
-//aloca memoria para armazenar as submissoes e para a pontucao
+//funcao para alocar memoria para armazenar as submissoes
 TADsub* alocaSubmissoes(TADsub *S, int qtd){
   S = (TADsub*) malloc (qtd * sizeof(TADsub));
+
+  if (S == NULL){      
+    exit(1);
+  }
+
+  return S;
 }
 
+
+//funcao para alocar memoria para armazenar para a pontuacao
 TADpont* alocaPontuacao(TADpont *P){
-  P = (TADpont*) malloc (sizeof(TADsub));
+  P = (TADpont*) malloc (sizeof(TADpont));
+
+  if (P == NULL){      
+    exit(1);
+  }
+
+  P->p = 0;
+  P->s = 0; 
+
+  return P;
 }
 
-//desaloca memoria para armazenada para as submissoes e para a pontuacao
+//funcao para desalocar memoria armazenada para a pontuacao
+TADsub* liberaSubmissoes(TADsub *S){
+  free(S);
+
+  return S;
+}
+
+//funcao para desalocar memoria armazenada para as submissoes 
 TADpont* liberaPontuacao(TADpont *P){
   free(P);
+
+  return P;
 }
 
-TADsub* liberaSubmissoes(TADsub *S){
-  free (S);
-}
 
+
+//funcao que le as submissoes 
 void lerSubmissoes(TADsub *S, int qtd){
-    for (int i = 0; i<qtd; i++){
-        scanf("%c" "%i" "%s", S[i].id, &S[i].tempo, S[i].julg);
+  int i;
+  for (i = 0; i < qtd; i++){
+      scanf(" %c ", &S[i].id);
+      scanf(" %d ", &S[i].tempo);
+      scanf(" %s ", S[i].julg); 
+  }
+}
+
+//funcao que calcula a pontuacao do aluno 
+void calculaPontuacao(TADsub *S, int qtd, TADpont *P){
+  
+  for (int i = 0; i < qtd ; i++){
+    
+    if (strcmp(S[i].julg,"correto") == 0){ 
+      P->p += S[i].tempo;
+      P->s ++;
+      quantidadeIncompletos(S,P,qtd,i);
+
     }
+  }
+}
+
+//funcao que calcula a quantidade de vezes que um caso correto, foi incompleto 
+void quantidadeIncompletos(TADsub *S, TADpont *P, int qtd, int i){
+
+  for (int k=0; k<qtd; k++){
+    if ((S[i].id == S[k].id) &&  strcmp(S[k].julg,"incompleto") == 0) {
+      P->p += 20;
+    } 
+  }  
+}
+
+//Print o resultado do aluno 
+void printPontuacao(TADpont *P){
+  printf("%d %d\n", P->s, P->p);
 }

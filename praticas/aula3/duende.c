@@ -9,7 +9,7 @@ struct duende {
   int escalado;
 };
 
-struct time {
+struct time { 
   char lider[20];
   char entregador[20];
   char piloto[20];
@@ -25,11 +25,15 @@ void lerQuantidade(int *qtd){
 //Manter como especificado
 TADduende *alocaDuendes(TADduende *D, int qtd){
   D = (TADduende*) malloc (qtd * sizeof(TADduende));
+
+  return D;
 }
 
 //Manter como especificado
 TADtime *alocaTimes(TADtime *T, int qtd){
   T = (TADtime*) malloc (qtd * sizeof(TADtime));
+
+  return T;
 }
 
 //Manter como especificado

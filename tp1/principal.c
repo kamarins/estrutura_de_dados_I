@@ -4,15 +4,20 @@
 
 int main(){
     int qtd;
-    int *V;
+    TADpont *P;
     TADsub *S;
 
     lerQuantidade(&qtd);
-    S = alocaSubmissoes(S, qtd);
-    lerSubmissoes(S,qtd);
-    printPontuação(V);
 
-    S = desalocaSubmissoes(S);
+    S = alocaSubmissoes(S, qtd);
+    P = alocaPontuacao(P);
+
+    lerSubmissoes(S,qtd);
+    calculaPontuacao(S,qtd,P);
+    printPontuacao(P);
+
+    S = liberaSubmissoes(S);
+    P = liberaPontuacao(P);
 
     return 0; 
 }

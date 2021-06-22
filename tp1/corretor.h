@@ -3,23 +3,33 @@
 
 //estrutura submissao 
 typedef struct submissao TADsub;
-typedef struct pontucao TADpont;
+typedef struct pontuacao TADpont;
 
-//ler a quantidade de submissoes do caso teste
+//funcao para ler a quantidade de submissoes do caso teste
 void lerQuantidade(int *qtd);
 
-//aloca memoria para armazenar as submissoes
+//funcao para alocar memoria para armazenar as submissoes
 TADsub* alocaSubmissoes(TADsub *S, int qtd);
+
+//funcao para alocar memoria para armazenar para a pontuacao
 TADpont* alocaPontuacao(TADpont *P);
 
-//desaloca memoria para armazenada para as submissoes e a pontuacao
+//funcao para desalocar memoria armazenada para as submissoes 
 TADsub* liberaSubmissoes(TADsub*S);
+
+//funcao para desalocar memoria armazenada para as submissoes 
 TADpont* liberaPontuacao(TADpont *P);
 
-//ler as submissoes do aluno
+//funcao que le as submissoes do aluno 
 void lerSubmissoes(TADsub *S, int qtd);
 
+//funcao que calcula a pontuacao do aluno 
+void calculaPontuacao(TADsub *S, int qtd, TADpont *P);
+
+//funcao que calcula a quantidade de vezes que um caso correto, foi incompleto 
+void quantidadeIncompletos(TADsub *S, TADpont *P, int qtd, int i);
+
 //Print o resultado do aluno 
-void printPontuação(int *V);
+void printPontuacao(TADpont *P);
 
 # endif
