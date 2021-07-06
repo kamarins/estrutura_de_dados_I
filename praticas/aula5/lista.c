@@ -74,17 +74,27 @@ void TLista_Esvazia(TLista *pLista) {
 // Acrescenta o conteudo de uma lista ao final de outra, apenas manipulando ponteiros
 void TLista_append(TLista *pLista1, TLista *pLista2){
 
-    TCelula *pAux;
+    // TCelula *pAux;
 
-    for (pAux=pLista2->pPrimeiro->pProx; pAux != NULL; pAux = pAux->pProx){
-        pLista1->pUltimo->pProx=pLista2->pPrimeiro->pProx;
-        pAux->Item.nome=pLista2->pPrimeiro->Item.nome;
+    // for (pAux=pLista2->pPrimeiro->pProx; pAux != NULL; pAux = pAux->pProx){
+    //     pLista1->pUltimo->pProx=pLista2->pPrimeiro->pProx;
+    //     pAux->Item.nome=pLista2->pPrimeiro->Item.nome;
+    // }
+
+    if (pLista1->pUltimo == NULL ){
+        pLista1->pUltimo = pLista2;
     }
-
+    else 
+        TLista_append(pLista1->pUltimo->pProx,pLista2);
 }
 
 // Inclui o conteudo de uma lista em outra, na posicao anterior a str, apenas manipulando ponteiros
 void TLista_include(TLista *pLista1, TLista *pLista2, char *str){
+    if (pLista1->pPrimeiro->pProx != NULL){
+        TCelula *pAux;
+        pAux = (*TCelula) malloc (sizeof(Tcelula));
 
+        
+    }
         
 }
