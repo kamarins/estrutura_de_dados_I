@@ -2,18 +2,20 @@
 # define lista_h
 
 typedef struct {
-    char nome;
+    char nome[30];
 } TItem;
 
 typedef struct celula {
-    struct celula *pProx;
-    TItem Item;
+    TItem item;
+    struct celula *prox;
 } TCelula;
 
 typedef struct {
-    TCelula *pPrimeiro, *pUltimo;
+    TCelula *prim;
+    TCelula *ult;
+    int tam;
 } TLista;
- 
+
 //Inicializa a lista
 void TLista_Inicia(TLista *pLista);
 //Retorna se a lista esta vazia
