@@ -1,39 +1,32 @@
 #include "pilha.h"
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+
 
 int main()
 {
   Pilha pilha;
-  char ch,aux1,aux2;
+  char ch;
   Item item;
-  int cont1=0, cont2=0;
-
-  aux1 = '(';
-  aux2 = ')';
 
   Pilha_Inicia(&pilha);
 
   while (scanf("%c", &ch)!= EOF)
   {
-    if(ch == aux1){
-      cont1++;
+    if ( ch == '(' ){
+      item.parenteses = ch;
+      Pilha_Push(&pilha,item);
+    } 
+    else if( ch == ')'){
+      Pilha_Pop(&pilha,&item); 
     }
-
-    if(ch == aux2){
-      cont2++;
-    }
-
-    item.expressao = ch;
-    Pilha_Push(&pilha,item);
   }
 
-//determinar o resultado
-
-  if (cont1 == cont2){
+  //determinar o resultado
+  if(Pilha_EhVazia(&pilha)){
     printf("correto\n");
   } else{
-    printf("incorreto\n");  
+    printf("incorreto\n");
   }
 
   Pilha_Esvazia(&pilha);

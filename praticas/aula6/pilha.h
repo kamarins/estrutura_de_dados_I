@@ -2,7 +2,7 @@
 # define pilha_h
 
 typedef struct {
-    char expressao;
+    char parenteses;
 } Item;
 
 typedef struct celula {

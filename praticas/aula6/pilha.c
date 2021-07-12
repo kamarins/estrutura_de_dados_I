@@ -65,16 +65,7 @@ int Pilha_Pop(Pilha *pilha, Item *item) {
 
 //Remove cada elemento de uma pilha e libera a memória
 void Pilha_Esvazia(Pilha *pilha) {
-    //apontador para a cabeca
-    Celula *celula = pilha->cabeca;
-
-    //auxiliar para nao perder a referencia
-    Celula *aux;
-
-    while(celula != NULL){
+    while(pilha->cabeca->prox != NULL){
         Pilha_Pop(pilha, &pilha->cabeca->item);
-        aux = celula->prox;
-        free(celula);
-        celula = aux;
     }
 }
