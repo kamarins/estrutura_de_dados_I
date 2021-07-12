@@ -18,7 +18,11 @@ int main()
       Pilha_Push(&pilha,item);
     } 
     else if( ch == ')'){
-      Pilha_Pop(&pilha,&item); 
+      int aux = Pilha_Pop(&pilha,&item);
+      if(aux == 0){
+        Pilha_Push(&pilha,item);
+        break;
+      }
     }
   }
 
