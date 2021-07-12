@@ -13,13 +13,15 @@ int main()
 
   while (scanf("%c", &ch)!= EOF)
   {
+    item.parenteses = ch;
+
     if ( ch == '(' ){
-      item.parenteses = ch;
+      //empilha os parenteses que abrem
       Pilha_Push(&pilha,item);
     } 
     else if( ch == ')'){
-      int aux = Pilha_Pop(&pilha,&item);
-      if(aux == 0){
+      if(Pilha_Pop(&pilha,&item) == 0){ //se a pilha for vazia
+       //adiciona o parenteses nela
         Pilha_Push(&pilha,item);
         break;
       }
