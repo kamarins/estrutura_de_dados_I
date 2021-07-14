@@ -20,7 +20,7 @@ int main()
       Pilha_Push(&pilha,item);
     } 
     else if( ch == ')'){
-      if(Pilha_Pop(&pilha,&item) == 0){ //se a pilha for vazia
+      if(!Pilha_Pop(&pilha,&item)){ //se a pilha for vazia
        //adiciona o parenteses nela
         Pilha_Push(&pilha,item);
         break;
