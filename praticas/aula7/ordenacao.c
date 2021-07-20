@@ -8,6 +8,10 @@ TipoAluno *alocaAlunos(TipoAluno *alunos, int n){
 
   alunos = (TipoAluno*) malloc (sizeof(TipoAluno) * n);
 
+  if(alunos == NULL){
+    exit(1);
+  }
+
   return alunos;
 }
 
