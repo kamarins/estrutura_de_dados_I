@@ -20,7 +20,6 @@ int main ()
 		//troca entre elementos consecutivos 
 	 	ordenacao(vetor,n ,&movimentos);
 
-		//printf("movimento: %d\n\n", movimentos);
 		//imprimir o resultado
 		if (movimentos % 2 == 0 ){
 			printf("Carlos\n");
