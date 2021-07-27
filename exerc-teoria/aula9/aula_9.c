@@ -1,5 +1,5 @@
 //Karine Isabelle Marins / 20.1.4057
-
+//isso é com vetor
 #include "aula9.h"
 
 void TLista_FazVazia (TLista* pLista ) {

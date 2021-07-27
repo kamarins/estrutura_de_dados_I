@@ -1,6 +1,7 @@
 # define INICIO 0
 # define MAXTAM 1000
 
+//isso é com vetor
 
 typedef struct {
     int chave ; /* outros campos */
