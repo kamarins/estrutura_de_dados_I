@@ -1,4 +1,5 @@
-// #include "lista.h"
+//percorrer a lista, achar o menor valor e colocar no começo da lista ;
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -107,6 +108,33 @@ void TLista_Esvazia(TLista *pLista) {
 }
 
 
+void MoveMenor(TLista *Lista){
+    TCelula *Aux = Lista->prim->prox;
+    TCelula *menor;
+    // TItem menor;
+
+
+    if (TLista_EhVazia(Lista))
+        return ;
+
+    while( Aux->prox != NULL){
+        
+        if (Aux->item.x < menor->item.x )
+            menor = Aux; //aqui ta recebendo uma celula
+
+        Aux = Aux->prox;
+    }
+
+
+    menor->prox = Lista->prim->prox;
+    Lista->prim->prox = menor; 
+    TCelula *aux = Lista->prim->prox; 
+    Lista->prim->prox = aux->prox;
+
+
+    Lista->prim->prox = menor;
+
+}
 void Troca(TLista *pLista1, int i){
 
     TCelula *Aux = pLista1->prim->prox;
@@ -155,3 +183,10 @@ int main(){
 
     return 0;
 }
+
+
+
+
+
+
+//percorrer a lista, achar o menor valor e colocar no começo da lista ;
