@@ -32,7 +32,7 @@ typedef struct{
 void TPilha_Inicia ( TPilha *pilha){
    TLista_Inicia(&pilha->lista);
 }
-
+  
 int TPilha_EhVazia (TPilha *pilha){
     if (pilha->lista.prim == NULL) 
         return 1;

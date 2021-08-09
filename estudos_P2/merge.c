@@ -153,18 +153,18 @@ void mergesort(int *v, int l, int r){
 int main(){
     int v[7];
 
-    v[0]=3;
-    v[1]=4;
-    v[2]=9;
-    v[3]=2;
-    v[4]=5;
+    v[0]=4;
+    v[1]=0;
+    v[2]=5;
+    v[3]=7;
+    v[4]=9;
     v[5]=1;
-    v[6]=8;
-    
+    v[6]=3;
+    v[7]=2;
 
     mergesort(v,0,6);
     printf("\nvetor ordenado: ");
-    imprimeVetor(v,7);
+    imprimeVetor(v,8);
     printf("\n");
     return 0;
 
