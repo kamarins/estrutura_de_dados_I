@@ -3,7 +3,7 @@
 
 int main ()
 {
-	int n, m, itens, resultado=0, max=0;
+	int n, m, itens, maximo=0;
 	TipoCaixa *heap = NULL;
 
 	//ler n e m
@@ -16,27 +16,15 @@ int main ()
 
 	//ler o tempo de atendimento de cada caixa
 	//a principio, cada caixa esta disponivel no tempo zero
-	for (int i = 1; i <= n; i++){
+	for (int i = 0; i < n; i++){
 		scanf("%d", &heap[i].tempo_vi);
-		heap[i].tempo_atendimento = 0;
-		heap[i].identificacao = i;
+		heap[i].tempo_atendimento = 0; //cada caixa disponivel no tempo 0
+		heap[i].identificacao = i+1;
 	}
 
 	//criar a fila de prioridades
 	Heap_Constroi(heap, n);
-
-	printf("\nidentificacao:");
-
-	for(int j=0; j<n;j++){
-		printf("|%d",heap->identificacao);
-	}
-
-	printf("\natendimento:");
-	for(int j=0; j<n;j++){
-		printf("|%d",heap->tempo_atendimento);
-	}
 	
-
 	while (m--) {
 
 		//para cada cliente, ler a quantidade de produtos
@@ -46,9 +34,8 @@ int main ()
 		heap[0].tempo_atendimento += heap[0].tempo_vi * itens;
 
 		//armazenar qual o tempo maximo para atender todos clientes ate agora
-		if (max < heap[0].tempo_atendimento)	
-			max = heap[0].tempo_atendimento;
-
+		if ( maximo < heap[0].tempo_atendimento )	
+			maximo = heap[0].tempo_atendimento;
 
 		//alterar a disponibilidade do caixa selecionado
 		Heap_Constroi(heap,n);
@@ -58,10 +45,7 @@ int main ()
 	heap = desalocaVetor(heap);
 
 	//imprimir a resposta
-	for(int k=0; k<n; k++){
-		resultado += heap[k].tempo_atendimento;
-	}
-	printf("%d\n", resultado);
+	printf("%d\n",maximo);
 
 	return 0;
 }

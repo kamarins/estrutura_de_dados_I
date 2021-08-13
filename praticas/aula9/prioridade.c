@@ -4,7 +4,7 @@
 
 //Manter como especificado
 TipoCaixa *alocaVetor(TipoCaixa *heap, int n){
-    heap = (TipoCaixa*) malloc (n * sizeof(TipoCaixa)) ;
+    heap = (TipoCaixa*)malloc(n*sizeof(TipoCaixa)) ;
     
     return heap;
 }
@@ -26,9 +26,10 @@ void Heap_Constroi(TipoCaixa *heap, int n){
 
     while(esquerda >= 0){
         Heap_Refaz(heap,esquerda, n-1);
-        esquerda --;
+        esquerda--;
     }
 }
+
 
 //Manter como especificado
 void Heap_Refaz(TipoCaixa *heap, int esq, int dir){
@@ -47,7 +48,7 @@ void Heap_Refaz(TipoCaixa *heap, int esq, int dir){
                 j++;
 
             else if(heap[j].tempo_atendimento == heap[j+1].tempo_atendimento && heap[j].identificacao > heap[j+1].identificacao)
-                    j++;
+                j++;
 
         } 
         
@@ -55,7 +56,7 @@ void Heap_Refaz(TipoCaixa *heap, int esq, int dir){
             break;
 
         else if(aux.tempo_atendimento == heap[j].tempo_atendimento && aux.identificacao < heap[j].identificacao)
-                break;
+            break;
                     
         
         heap[i] = heap[j];
@@ -67,3 +68,7 @@ void Heap_Refaz(TipoCaixa *heap, int esq, int dir){
     heap[i] = aux;
 
 }
+
+
+
+
