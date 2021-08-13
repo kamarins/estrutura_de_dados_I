@@ -18,12 +18,11 @@ TipoCaixa *desalocaVetor(TipoCaixa *heap){
 
 }
 
-
 //Manter como especificado
 void Heap_Constroi(TipoCaixa *heap, int n){
     int esquerda;
 
-    esquerda = (n/2) - 1; // primeiro no antes do no folha do heap
+    esquerda = (n/2) - 1; // primeiro noh antes do noh folha do heap
 
     while(esquerda >= 0){
         Heap_Refaz(heap,esquerda, n-1);
@@ -33,24 +32,35 @@ void Heap_Constroi(TipoCaixa *heap, int n){
 
 //Manter como especificado
 void Heap_Refaz(TipoCaixa *heap, int esq, int dir){
-    int i,j,aux;
+
+    int i,j;
+    TipoCaixa aux;
 
     i =  esq;
-    j = i * 2 + 1;
-    aux = heap[i];
+    j = i * 2 + 1; //primeiro filho de i
+    aux = heap[i]; 
 
     while (j <= dir){
-        if (j < dir && heap[j] < heap[j+1]){
-            j = j + 1;
-        }
+        if (j < dir){
 
-        if (aux >= heap[j]){
+            if (heap[j].tempo_atendimento > heap[j+1].tempo_atendimento) // verifica se o pai e menor que o filho
+                j++;
+
+            else if(heap[j].tempo_atendimento == heap[j+1].tempo_atendimento && heap[j].identificacao > heap[j+1].identificacao)
+                    j++;
+
+        } 
+        
+        if (aux.tempo_atendimento < heap[j].tempo_atendimento)
             break;
-        }
 
+        else if(aux.tempo_atendimento == heap[j].tempo_atendimento && aux.identificacao < heap[j].identificacao)
+                break;
+                    
+        
         heap[i] = heap[j];
         i = j;
-        j = i*2 +1;
+        j = i*2 +1; //j e o primeiro filho de i
 
     }
     

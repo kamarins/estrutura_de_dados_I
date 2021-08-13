@@ -3,8 +3,8 @@
 
 typedef struct{
 	int identificacao;// identificacao e quando estará livre
-	int tempo;
-
+	int tempo_vi;
+	int tempo_atendimento;
 } TipoCaixa;
 
 //Manter como especificado
