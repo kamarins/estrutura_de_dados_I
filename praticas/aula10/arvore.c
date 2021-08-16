@@ -3,23 +3,24 @@
 #include <stdlib.h>
 
 //Manter como especificado
-void TArvore_Inicia (TNo ** pRaiz){
+void TArvore_Inicia (TNo **pRaiz){
     *pRaiz = NULL;
 }
 
 //Manter como especificado
-void TArvore_Insere_Raiz (TNo ** ppRaiz , TItem x){
+void TArvore_Insere_Raiz (TNo **ppRaiz , TItem x){
     
     if (*ppRaiz == NULL ) {
         *ppRaiz = TNo_Cria(x);
         return;
     }
 
-    TArvore_Insere(*ppRaiz , x) ;
+    TArvore_Insere(*ppRaiz, x) ;
 
 }
+
 //Manter como especificado
-int TArvore_Insere (TNo * pRaiz , TItem x){
+int TArvore_Insere (TNo *pRaiz , TItem x){
     if ( pRaiz == NULL ) return -1; // arvore vazia
 
     if (x.chave < pRaiz->item.chave ) {
@@ -44,21 +45,21 @@ int TArvore_Insere (TNo * pRaiz , TItem x){
 }
 
 //Manter como especificado
-TNo * TNo_Cria (TItem x){
+TNo *TNo_Cria (TItem x){
 
-    TNo * pAux = (TNo*) malloc(sizeof(TNo));
-    pAux -> item = x;
-    pAux -> pEsq = NULL ;
-    pAux -> pDir = NULL ;
+    TNo *pAux = (TNo*) malloc(sizeof(TNo));
+    pAux->item = x;
+    pAux->pEsq = NULL ;
+    pAux->pDir = NULL ;
     return pAux ;
 } 
 
 //Manter como especificado
-void Prefixa(TNo * p){
+void Prefixa(TNo *p){
 
     if (p == NULL ) return ;
 
-    printf (" %d ", p->item.chave ) ;
+    printf (" %d", p->item.chave ) ;
     Prefixa (p->pEsq );
     Prefixa (p->pDir );
 }
@@ -69,7 +70,7 @@ void Infixa(TNo * p){
     if (p == NULL ) return ;
 
     Infixa(p->pEsq) ;
-    printf (" %d ", p->item.chave ) ;
+    printf (" %d", p->item.chave ) ;
     Infixa(p->pDir) ;
 }
 
@@ -80,5 +81,5 @@ void Posfixa(TNo * p){
 
     Posfixa (p->pEsq );
     Posfixa (p->pDir );
-    printf (" %d ", p->item.chave ) ;
+    printf (" %d", p->item.chave ) ;
 }
