@@ -62,19 +62,19 @@ int TLista_RetiraPrimeiro(TLista *pLista, TItem *pX) {
 }
 
 // Imprime os elementos da lista
-void TLista_Imprime(TLista *pLista) {
+// void TLista_Imprime(TLista *pLista) {
     
-    //o conteudo do endereço para o qual aux aponta recebe prox
-    TCelula *Aux = pLista->prim->prox;
+//     //o conteudo do endereço para o qual aux aponta recebe prox
+//     TCelula *Aux = pLista->prim->prox;
 
-    while(Aux != NULL) {
+//     while(Aux != NULL) {
        
-        printf("%s ", Aux->item.nome);
-        Aux = Aux->prox;
+//         printf("%s ", Aux->item.nome);
+//         Aux = Aux->prox;
 
-    }
+//     }
 
-}
+// }
 
 //Remove cada elemento de uma lista e libera a memória
 void TLista_Esvazia(TLista *pLista) {
