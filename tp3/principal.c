@@ -3,19 +3,18 @@
 
 int main(){
     int verificacao;
-    long int n,a;
-    double *tiras = NULL;
+    long int n,a,*tiras = NULL;
     
     do{
 
         scanf("%ld %ld", &n, &a); //numero de tiras e a area esperada 
-
+ 
         tiras = alocaTiras(tiras,n);
 
         if(n == 0 && a == 0) break;
 
         for (int i=0; i<n; i++){
-            scanf("%le",&tiras[i]);
+            scanf("%ld",&tiras[i]);
         }
 
         ordenar_vetor(tiras,0,n-1); //ordenacao do vetor para efetuar busca binaria
